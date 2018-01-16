@@ -1,0 +1,164 @@
+<!--index.wxml-->
+<import src="../../dist/toast/index.wxml" />
+<!--引入模板  -->
+<template is="zan-toast" data="{{ zanToast }}"></template>
+<view class="container">
+    <!--搜索  -->
+    <view class="searchBox">
+        <view class="search" bindtap="search">
+            <view class="icon-search"><image src="https://qncdn.playonwechat.com/shangcheng/search.png"></image></view>
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                    <input class="weui-input"  placeholder="搜索商品" readonly="readonly"/>
+                </view>
+            </view>
+        </view> 
+        <view class="img" >
+          <image src="../images/chart.png" mode="widthFix" style="width:40rpx;vertical-align: middle;"></image>
+          <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="opacity:0;position:absolute;top:20rpx;right:10rpx;">  
+          </contact-button>  
+          <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="opacity:0;position:absolute;top:20rpx;right:0rpx;">  
+          </contact-button>
+        </view>
+    </view>
+    <!--轮播图 -->
+    <swiper class="swiper" wx:if="{{banner.length !=0}}"  indicator-dots="{{indicatorDots}}" 
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#ff4444" 
+            indicator-active-color="#fff">
+        <block wx:for="{{banner}}" wx:key="{{index}}">
+          <swiper-item>
+            <image src="{{item.url}}" class="slide-image" mode="aspectFill" data-url="{{item.location}}" catchtap="swipclick"/>
+          </swiper-item>
+        </block>
+    </swiper>
+    <!--分类 新增star -->
+    <view class="nav bc_white">
+          <view class="{{state == 0?'red':'default'}}" bindtap="tapKeyWorld" data-ontap="dog" data-cate="0" data-state = "0"><span>狗狗</span></view>
+          <view class="{{state == 1?'red':'default'}}" bindtap="tapKeyWorld" data-ontap="cat" data-cate="0" data-state = "1"><span>猫猫</span></view> 
+    </view>
+    <view class="sort">
+        <view wx:for="{{modules}}" data-allindex="{{index}}" wx:key="{{item.id}}" data-cate_id='{{item.cate_id}}'                             bindtap='petTab' data-cate_name='{{item.cate_name}}' class='navigator'>
+            <view class="image-text">
+                <image src="{{item.icon}}" mode="scaleToFill"  binderror="errorFunction"></image>
+                <text>{{item.cate_name}}</text>
+            </view>
+        </view>
+    </view>
+    <!--养宠计划  -->
+    <view class="all chakan" wx:if="{{modulesPet}}">养宠套餐</view>
+    <view class='allPackage'>
+        <view class='Package' wx:for="{{modulesPet}}" wx:key="{{index}}" bindtap='petTab' 
+              data-allindex="{{index}}"  data-cate_id='{{item.cate_id}}' data-cate_name='{{item.cate_name}}'>
+            <view class='packageText'>
+                <view class='packageTitle'>{{item.cate_name}}</view>
+                <view class='packageLittle'>{{item.desc}}</view>
+            </view>
+            <view class='packageImg'>
+                <image src="{{item.icon}}" mode='aspectFill'></image>
+            </view>
+        </view>
+    </view>
+    <!--火爆促销  -->
+     <view class="all chakan" wx:if="{{modulesHot}}">火爆促销</view>
+      <view class='allPackage'>
+          <view class='Package' wx:for="{{modulesHot}}" wx:key="{{index}}" bindtap='petTab' 
+                data-allindex="{{index}}"  data-cate_id='{{item.cate_id}}' data-cate_name='{{item.cate_name}}'>
+              <view class='packageText'>
+                  <view class='packageTitle'>{{item.cate_name}}</view>
+                  <view class='packageLittle'>{{item.desc}}</view>
+              </view>
+              <view class='packageImg'>
+                  <image src="{{item.icon}}" mode='aspectFill'></image>
+              </view>
+          </view>
+      </view> 
+    <!-- m秒杀 -->
+    <view class="groupon groupon2" wx:if="{{currentSeckillTime != null}}">
+        <view class="gpTitle miao">
+            <view class="classname"><text>特价福利 </text><image style="margin-left:20rpx;width:40rpx" src="../images/times.png" mode="widthFix"></image></view>
+           <navigator url="../miaosha/miaosha?gid={{item.gid}}" style="display:inline;color:#ff4444;font-size:24rpx;">
+                查看更多<image src="../images/nexta.png" mode="widthFix"/>
+            </navigator>
+        </view>
+        <!-- <view class="center time" >暂时没有秒杀场次</view> -->
+        <view class="Tall">
+            <view class="xianshi">
+                <view class="left">
+                    <text class="classname" style="color:#000000;font-weight:bold;font-size:26rpx">限时秒杀</text>
+                    <text class="classname" style="color:#666666">包邮抢购中</text>
+                </view>
+                <view class="right">
+                    <view class="center time" wx:for="{{Countdown}}" wx:key="{{index}}">{{currentSeckillTime}}场结束仅剩 
+                                            <text>{{item.hr}}</text>：
+                                            <text>{{item.min}}</text>：
+                                            <text>{{item.sec}}</text></view>
+                    <!-- <view class="center countdown" wx:for="{{Countdown}}">{{item.hr}}时{{item.min}}分{{item.sec}}秒</view> -->
+                </view>
+            </view>
+            <view class="gpList">
+                <navigator wx:for="{{seckills}}" wx:key="{{item.index}}" class="gpimage" url="../miaosha/miaosha?gid={{item.gid}}">
+                    <image style="height:198rpx;" src="{{item.picture}}" mode="aspectFill"></image>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</view>
+<!--{
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/images/shouye.png",
+        "selectedIconPath": "pages/images/shouyeb.png"
+      },
+      {
+        "pagePath": "pages/pets/pets",
+        "text": "萌宠",
+        "iconPath": "pages/images/pet.png",
+        "selectedIconPath": "pages/images/peta.png"
+      },
+      {
+        "pagePath": "pages/car/car",
+        "text": "购物车",
+        "iconPath": "pages/images/gouwu.png",
+        "selectedIconPath": "pages/images/gouwub.png"
+      },
+      {
+        "pagePath": "pages/work/work",
+        "text": "任务",
+        "iconPath": "pages/images/work.png",
+        "selectedIconPath": "pages/images/workb.png"
+      },{
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "pages/images/wode.png",
+        "selectedIconPath": "pages/images/wodeb.png"
+      }  -->
+<!--navbar  -->
+ <view class='navBarbox'>
+      <view class="navBar">
+          <view class='itemBar' data-itemBar='1' bindtap='navUrl' data-url='../index/index'>
+              <image wx:if="{{itemBar==1}}" src="../image/shouye.png" mode='widthFix'></image>
+              <image wx:else src="../images/shouye.png" mode='widthFix'></image>
+              <view>首页</view>
+          </view>
+          <view class='itemBar' data-itemBar='2' bindtap='navUrl' data-url='../pets/pets'>
+              <image wx:if="{{itemBar==2}}" src="../images/pet.png"  mode='widthFix'></image>
+              <image wx:else src="../images/pet.png"  mode='widthFix'></image>
+              <view>萌宠</view>
+          </view>
+          <!-- <view class='itemBar itemBar3' data-itemBar='3' bindtap='navUrl' data-url='../car/car'>
+              <image wx:if="{{itemBar==3}}" src="../images/gouwu.png"  mode='widthFix'></image>
+              <image wx:else src="../images/gouwu.png"  mode='widthFix'></image>
+              <view>购物车</view>
+          </view> -->
+          <view class='itemBar' data-itemBar='41' bindtap='navUrl' data-url='../work/work'>
+              <image wx:if="{{itemBar==4}}" src="../images/work.png"  mode='widthFix'></image>
+              <image wx:else src="../images/work.png"  mode='widthFix'></image>
+              <view>任务</view>
+          </view>
+          <view class='itemBar' data-itemBar='41' bindtap='navUrl' data-url='../my/my'>
+              <image wx:if="{{itemBar==4}}" src="../images/wode.png"  mode='widthFix'></image>
+              <image wx:else src="../images/wode.png"  mode='widthFix'></image>
+              <view>我的</view>
+          </view>
+      </view>
+  </view>

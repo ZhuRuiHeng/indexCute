@@ -14,7 +14,8 @@ Page(Object.assign({}, Zan.Toast, {
     detail:'',
     addCar:false,
     amount:"",
-    inform: [], Array: ['钱包支付', '返现支付', '积分支付'],
+    inform: [], 
+    Array: ['钱包支付', '返现支付', '积分支付', '钱包余额+返现余额', '钱包余额+积分余额'],
     objectArray: [
       {
         id: 'wallet',
@@ -303,6 +304,12 @@ Page(Object.assign({}, Zan.Toast, {
                   if (status == 1) {
                     if (!res.data.data.timeStamp) {
                       that.showZanToast('支付成功！');
+                      // 支付成功跳转
+                      setTimeout(function () {
+                        wx.navigateTo({
+                          url: '../dingdan/dingdan?status='
+                        })
+                      }, 1500)
                       // 保存formid
                       wx.request({
                         url: app.data.apiUrl + "/api/save-form?sign=" + wx.getStorageSync('sign'),
@@ -317,10 +324,6 @@ Page(Object.assign({}, Zan.Toast, {
                           console.log('保存formid成功');
                         }
                       })
-                      // 支付成功跳转
-                      wx.navigateTo({
-                        url: '../dingdan/dingdan?status='
-                      })
                     }else{
                       wx.requestPayment({
                         timeStamp: res.data.data.timeStamp,
@@ -332,6 +335,13 @@ Page(Object.assign({}, Zan.Toast, {
                           let status = res.data.data.status;
                           if (status == 1) {
                             that.showZanToast('支付成功！');
+                            // 支付成功跳转
+                            setTimeout(function () {
+                              wx.navigateTo({
+                                url: '../dingdan/dingdan?status='
+                              })
+                            }, 300)
+
                             setTimeout(function () {
                               that.setData({
                                 gouwu: []
@@ -349,10 +359,6 @@ Page(Object.assign({}, Zan.Toast, {
                                 success: function (res) {
                                   console.log('保存formid成功');
                                 }
-                              })
-                              // 支付成功跳转
-                              wx.navigateTo({
-                                url: '../dingdan/dingdan?status='
                               })
                             }, 10)
                           } else {
@@ -382,27 +388,21 @@ Page(Object.assign({}, Zan.Toast, {
             //（2）返现账户余额不足仅可调用充值账户
             //（3）积分账户余额不足仅可调用充值账户
             console.log("payment:", payment);
-            if (that.data.pay_type == 'wallet') { //模式1
+            if (that.data.pay_type == 'wallet') { //模式1wallet
               console.log('模式' + 1);
-              if (walletNow < payment) {
-                allPayment('wallet,pet_money');
-              } else {
-                allPayment('wallet');
-              }
-            } else if (that.data.pay_type == 'pet_money') { //模式2
+              allPayment('wallet');
+            } else if (that.data.pay_type == 'pet_money') { //模式2pet_money
               console.log('模式' + 2);
-              if (pet_moneyNow < payment) {
-                allPayment('pet_money,wallet');
-              } else {
-                allPayment('pet_money');
-              }
+              allPayment('pet_money');
             } else if (that.data.pay_type == 'point') { //模式3
               console.log('模式' + 3);
-              if (pointNow < payment) {
-                allPayment('point,wallet');
-              } else {
-                allPayment('point');
-              }
+              allPayment('point');
+            } else if (that.data.pay_type == 'pet_money,wallet') { //模式4 pet_money,wallet
+              console.log('模式' + 4);
+              allPayment('pet_money,wallet');
+            } else if (that.data.pay_type == 'point,wallet') { //模式5 point,wallet
+              console.log('模式' + 5);
+              allPayment('point,wallet');
             }
           } else {
             tips.alert(res.data.msg);

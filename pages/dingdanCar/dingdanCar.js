@@ -280,6 +280,12 @@ Page(Object.assign({}, Zan.Toast, {
                   if (status == 1) {
                     if (!res.data.data.timeStamp){
                       that.showZanToast('支付成功！');
+                      // 支付成功跳转
+                      setTimeout(function () {
+                        wx.navigateTo({
+                          url: '../dingdan/dingdan?status='
+                        })
+                      }, 1500)
                       // 保存formid
                       wx.request({
                         url: app.data.apiUrl + "/api/save-form?sign=" + wx.getStorageSync('sign'),
@@ -291,12 +297,7 @@ Page(Object.assign({}, Zan.Toast, {
                         },
                         method: "GET",
                         success: function (res) {
-                          // 支付成功跳转
-                          setTimeout(function(){
-                            wx.navigateTo({
-                              url: '../dingdan/dingdan?status='
-                            })
-                          },1500)
+                        
                           console.log('保存formid成功');
                         }
                       })                    

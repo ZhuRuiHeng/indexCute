@@ -393,30 +393,21 @@ Page(Object.assign({}, Zan.Toast, {
             //（2）返现账户余额不足仅可调用充值账户
             //（3）积分账户余额不足仅可调用充值账户
             console.log("payment:", payment);
-            if (that.data.pay_type == 'wallet') { //模式1
+            if (that.data.pay_type == 'wallet') { //模式1wallet
               console.log('模式' + 1);
-              if (walletNow < payment) {
-                that.showZanToast('钱包余额不足');
-                allPayment('wallet,pet_money');
-              } else {
-                allPayment('wallet');
-              }
-            } else if (that.data.pay_type == 'pet_money') { //模式2
+              allPayment('wallet');
+            } else if (that.data.pay_type == 'pet_money') { //模式2pet_money
               console.log('模式' + 2);
-              if (pet_moneyNow < payment) {
-                that.showZanToast('返现余额不足');
-                allPayment('pet_money,wallet');
-              } else {
-                allPayment('pet_money');
-              }
+              allPayment('pet_money');
             } else if (that.data.pay_type == 'point') { //模式3
               console.log('模式' + 3);
-              if (pointNow < payment) {
-                that.showZanToast('积分余额不足');
-                allPayment('point,wallet');
-              } else {
-                allPayment('point');
-              }
+              allPayment('point');
+            } else if (that.data.pay_type == 'pet_money,wallet') { //模式4 pet_money,wallet
+              console.log('模式' + 4);
+              allPayment('pet_money,wallet');
+            } else if (that.data.pay_type == 'point,wallet') { //模式5 point,wallet
+              console.log('模式' + 5);
+              allPayment('point,wallet');
             }
           } else {
             tips.alert(res.data.msg);

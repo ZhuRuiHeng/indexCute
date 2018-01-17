@@ -491,31 +491,100 @@ Page(Object.assign({}, Zan.Toast, {
                     console.log(res);
                     var status = res.data.status;
                     if (status == 1) {
-                      wx.requestPayment({
-                        timeStamp: res.data.data.timeStamp,
-                        nonceStr: res.data.data.nonceStr,
-                        package: res.data.data.package,
-                        signType: res.data.data.signType,
-                        paySign: res.data.data.paySign,
-                        success: function (res) {
-                          let status = res.data.data.status;
-                          if (status == 1) {
-                            that.showZanToast('支付成功！');
-                            setTimeout(function () {
-                              // 支付成功跳转
-                              wx.redirectTo({
-                                url: '../bargainInform/bargainInform?bargain_id=' + that.data.bargain_id + '&gid=' + that.data.gid
-                              })
-                            }, 10)
-                          } else {
-                            console.log(res.data.data.msg)
-                            that.showZanToast('支付失败！');
+                      if (!res.data.data.timeStamp) {
+                        that.showZanToast('支付成功！');
+                        // 支付成功跳转
+                        setTimeout(function () {
+                          wx.navigateTo({
+                            url: '../bargainInform/bargainInform?status='
+                          })
+                        }, 1500)
+                        // 保存formid
+                        wx.request({
+                          url: app.data.apiUrl + "/api/save-form?sign=" + wx.getStorageSync('sign'),
+                          data: {
+                            form_id: formId
+                          },
+                          header: {
+                            'content-type': 'application/json'
+                          },
+                          method: "GET",
+                          success: function (res) {
+                            console.log('保存formid成功');
                           }
-                        },
-                        fail: function (res) {
-                          that.showZanToast('您取消了支付！');
-                        }
-                      })
+                        })
+                      } else {
+                        wx.requestPayment({
+                          timeStamp: res.data.data.timeStamp,
+                          nonceStr: res.data.data.nonceStr,
+                          package: res.data.data.package,
+                          signType: res.data.data.signType,
+                          paySign: res.data.data.paySign,
+                          success: function (res) {
+                            let status = res.data.data.status;
+                            if (status == 1) {
+                              that.showZanToast('支付成功！');
+                              // 支付成功跳转
+                              setTimeout(function () {
+                                wx.navigateTo({
+                                  url: '../bargainInform/bargainInform?status='
+                                })
+                              }, 300)
+
+                              setTimeout(function () {
+                                that.setData({
+                                  gouwu: []
+                                })
+                                // 保存formid
+                                wx.request({
+                                  url: app.data.apiUrl + "/api/save-form?sign=" + wx.getStorageSync('sign'),
+                                  data: {
+                                    form_id: formId
+                                  },
+                                  header: {
+                                    'content-type': 'application/json'
+                                  },
+                                  method: "GET",
+                                  success: function (res) {
+                                    console.log('保存formid成功');
+                                  }
+                                })
+                              }, 10)
+                            } else {
+                              console.log(res.data.data.msg)
+                              that.showZanToast('支付失败！');
+                            }
+                          },
+                          fail: function (res) {
+                            that.showZanToast('您取消了支付！');
+                          }
+                        })
+                      }
+                      // wx.requestPayment({
+                      //   timeStamp: res.data.data.timeStamp,
+                      //   nonceStr: res.data.data.nonceStr,
+                      //   package: res.data.data.package,
+                      //   signType: res.data.data.signType,
+                      //   paySign: res.data.data.paySign,
+                      //   success: function (res) {
+                      //     let status = res.data.data.status;
+                      //     if (status == 1) {
+                      //       that.showZanToast('支付成功！');
+                      //       setTimeout(function () {
+                      //         // 支付成功跳转
+                      //         wx.redirectTo({
+                      //           url: '../bargainInform/bargainInform?bargain_id=' + that.data.bargain_id + '&gid=' + that.data.gid
+                      //         })
+                      //       }, 300)
+                      //     } else {
+                      //       console.log(res.data.data.msg)
+                      //       that.showZanToast('支付失败！');
+                      //     }
+                      //   },
+                      //   fail: function (res) {
+                      //     that.showZanToast('您取消了支付！');
+                      //   }
+                      // })
                     } else {
                       that.showZanToast(res.data.msg);
                     }
@@ -530,27 +599,21 @@ Page(Object.assign({}, Zan.Toast, {
               //（2）返现账户余额不足仅可调用充值账户
               //（3）积分账户余额不足仅可调用充值账户
               console.log("payment:", payment);
-              if (that.data.pay_type == 'wallet') { //模式1
+              if (that.data.pay_type == 'wallet') { //模式1wallet
                 console.log('模式' + 1);
-                if (walletNow < payment) {
-                  allPayment('wallet,pet_money');
-                } else {
-                  allPayment('wallet');
-                }
-              } else if (that.data.pay_type == 'pet_money') { //模式2
+                allPayment('wallet');
+              } else if (that.data.pay_type == 'pet_money') { //模式2pet_money
                 console.log('模式' + 2);
-                if (pet_moneyNow < payment) {
-                  allPayment('pet_money,wallet');
-                } else {
-                  allPayment('pet_money');
-                }
+                allPayment('pet_money');
               } else if (that.data.pay_type == 'point') { //模式3
                 console.log('模式' + 3);
-                if (pointNow < payment) {
-                  allPayment('point,wallet');
-                } else {
-                  allPayment('point');
-                }
+                allPayment('point');
+              } else if (that.data.pay_type == 'pet_money,wallet') { //模式4 pet_money,wallet
+                console.log('模式' + 4);
+                allPayment('pet_money,wallet');
+              } else if (that.data.pay_type == 'point,wallet') { //模式5 point,wallet
+                console.log('模式' + 5);
+                allPayment('point,wallet');
               }
             } else {
               tips.alert(res.data.msg);

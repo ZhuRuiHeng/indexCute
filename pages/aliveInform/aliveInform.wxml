@@ -137,6 +137,7 @@
         <view class="picker">
           支付方式：{{Array[index]}}
         </view>
+        <image></image>
       </picker>
       <form report-submit="true" bindsubmit="formSubmit" class="formSubmit">
             <button class="submit" formType="submit">下一步</button>

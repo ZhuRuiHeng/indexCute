@@ -42,6 +42,7 @@ Page({
           eng: 'December '
         }
       ],
+      monethList1: [ '一月','二月','三月','四月','五月','六月','七月','八月','九月', '十月','十一月','十二月'],
       joinUsre:[
         {
           icon: 'https://pet.zealcdn.cn/assets/images/icons/category/363620171231130639.jpg',
@@ -91,6 +92,11 @@ Page({
     let that = this;
     var date = new Date();
     var nowMonth = date.getMonth() + 1;
+    var _nowMonth = date.getMonth() + 1;
+    console.log('_nowMonth', _nowMonth);
+    that.setData({
+      monthIndex: _nowMonth-1
+    })
     let month = date.getMonth() + 1;
     if (nowMonth==1){
       nowMonth = '一月'
@@ -323,7 +329,14 @@ Page({
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      upIndex: e.detail.value
+      upIndex: e.detail.value,
+    })
+  },
+  // 选择月份
+  bindPickermouth(e){
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      monthIndex: e.detail.value,
     })
   },
   upVideo() {

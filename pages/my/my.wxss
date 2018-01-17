@@ -140,9 +140,6 @@
     padding:0 20rpx;
     border-radius: 30rpx;
 }
-.bottom{
-    margin-bottom: 60rpx;
-}
 .xuanze{
     margin-top: 20rpx;
 }
@@ -218,7 +215,7 @@ button.flex::after{
   z-index:9999999999;
 }
 .allXuan{
-  margin-bottom: 200rpx;
+  margin-bottom: 100rpx;
 }
 .fixed button{
   width: 50%;

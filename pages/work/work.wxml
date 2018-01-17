@@ -9,29 +9,29 @@
           </swiper-item>
         </block>
     </swiper>
-     <view class='titleUser'>
+    <!-- <view class='titleUser'>
         <view class="{{state == 0?'red':'default'}}" bindtap="tapKeyWorld" 
               data-ontap="hot" data-cate="0" data-state = "0">已参与用户</view>
         <view class="{{state == 1?'red':'default'}}" bindtap="tapKeyWorld" 
               data-ontap="hot" data-cate="0" data-state = "1">相关用户</view>
-    </view>
-    <view class='content'>
+    </view> -->
+    <!-- <view class='content'>
         <view class='icon' wx:for="{{joinUsre}}" wx:key="{{index}}"><image src="{{item.icon}}" mode='aspectFill'></image></view>
-    </view>  
-    <view class='title'>本月任务</view>
+    </view>   -->
     <view class='navbar'>
-        <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{monethList}}" range-key="{{'moneth'}}">
-          <view class="picker">
-            {{nowMonth}}{{location[index]}}
+         <picker bindchange="bindPickermouth" value="{{index}}" range="{{monethList}}" range-key="{{'moneth'}}">
+          <view class="picker title">
+            {{monethList1[monthIndex]}}{{location[index]}}任务
+            <image bindchange="bindPickermouth" class='rol' src="../img/rols.png" mode='widthFix'></image>
           </view>
-        </picker> -->
-        <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        </picker> 
+        <!-- <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
             <view wx:for="{{monethList}}" wx:key="{{index}}" class="tab-item {{currentTab== index ?'active':''}}"  
                   data-current="{{index}}" bindtap="swichNav">
             <text>{{item.moneth}}</text>
             <text>{{item.eng}}</text>
             </view>
-        </scroll-view>
+        </scroll-view> -->
 
         
         <!-- <swiper indicator-dots="{{indicatorDots}}"
@@ -90,7 +90,10 @@
     <!--内容  -->
     <view class='box' wx:else>
         <view class='title-content'>
-            <view class='left'>本月任务</view>
+              <picker class='left' bindchange="bindPickermouth" value="{{index}}" range="{{monethList}}" range-key="{{'moneth'}}">  <view class="picker">
+                  {{monethList1[monthIndex]}}{{location[index]}}任务
+                </view>
+              </picker> 
             <view class='right'>{{listNum.length}}/{{total_count}}</view>
         </view>
         <view class='bar'>

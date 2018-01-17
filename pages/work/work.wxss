@@ -31,7 +31,7 @@ page{
 .tab-item{margin:0 12rpx;display: inline-block;text-align: center;}
 .tab-item.active{color: #ff4444;position: relative;}
 .picker{
-  text-align: left;
+  text-align: center;
 }
 swiper{
   width:50%;
@@ -57,6 +57,16 @@ swiper view{
 .box .title-content{
     display: flex;
     justify-content: space-between;
+}
+.box .title-content picker{
+  text-align: left;
+  display: inline-block;
+}
+.box .title-content picker .picker{
+  text-align: left;
+}
+.box .title-content .left{
+  min-width: 200rpx;
 }
 .bar{
   position: relative;
@@ -217,4 +227,11 @@ swiper view{
 }
 .titleUser .red{
   color:rgb(220, 165, 74);
+}
+image.rol{
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 6rpx;
+  left: 0rpx;
 }

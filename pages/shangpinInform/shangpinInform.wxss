@@ -226,8 +226,14 @@
   position: relative;
   top:6rpx;
 }
-.right.color{
+.red{
+  width: 100%;
+  padding: 10rpx 10rpx 0rpx 20rpx;
+  box-sizing: border-box;
+}
+.right.color,.red{
   color:#ff4444;
+  text-align: right;
 }
 .bg{
     width: 100%;
@@ -487,4 +493,9 @@ switch{transform:scale(.8)}
   border-radius: 6rpx;
   font-size: 22rpx;
   margin-left: 10rpx;
+}
+.notice{
+  text-align: left;
+  padding:0 0 20rpx 20rpx;
+  background: #fff;
 }

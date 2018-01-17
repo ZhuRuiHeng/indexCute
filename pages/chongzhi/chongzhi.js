@@ -33,6 +33,26 @@ Page(Object.assign({}, Zan.Toast, {
         wx.hideLoading()
       }
     })
+    // 积分比例
+    wx.request({
+      url: app.data.apiUrl2 + "/api/get-point-ratio?sign=" + sign,
+      header: {
+        'content-type': 'application/json'
+      },
+      method: "GET",
+      success: function (res) {
+        let status = res.data.status;
+        if (status == 1) {
+          console.log("积分比例", res.data.data);
+          that.setData({
+            ratio: res.data.data.ratio
+          })
+        } else {
+          tips.alert(res.data.msg);
+        }
+        wx.hideLoading()
+      }
+    })
   },
   zindex(){
     this.setData({

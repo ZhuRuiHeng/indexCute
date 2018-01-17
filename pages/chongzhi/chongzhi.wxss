@@ -182,3 +182,8 @@ page{
   background:#51a938;
   color: #fff;
 }
+.red{
+  padding: 20rpx;
+  color: #ff4444;
+  text-align: right;
+}

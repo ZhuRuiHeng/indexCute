@@ -28,9 +28,10 @@
         <view class="classname">
             <text>积分余额</text>
         </view>
-        <view class="nextImg">￥{{allMoney.point}}</view> 
+        <view class="nextImg">{{allMoney.point*1}}积分</view> 
     </view>
 </view>
+<view class='red'>注：1积分等于￥{{1*ratio}}</view>
 <view class='buttons'>
     <view class='button ' bindtap='zindex' style='background-color: #51a938;'>钱包充值</view> 
 </view>

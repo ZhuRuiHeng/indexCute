@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 27,
 			"list": [
 				{
 					"id": 0,
@@ -181,6 +181,18 @@
 					"id": -1,
 					"name": "购物车支付列表",
 					"pathName": "pages/dingdanCar/dingdanCar",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "更多",
+					"pathName": "pages/dingdan/dingdan",
+					"query": "mid=145&cate_id=43"
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/dingdan/dingdan",
 					"query": ""
 				}
 			]

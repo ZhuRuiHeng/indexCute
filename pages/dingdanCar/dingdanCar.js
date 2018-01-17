@@ -285,6 +285,7 @@ Page(Object.assign({}, Zan.Toast, {
                         url: '../dingdan/dingdan?status='
                       })
                     }else{
+                      that.showZanToast('余额不足，使用微信支付');
                       wx.requestPayment({
                         timeStamp: res.data.data.timeStamp,
                         nonceStr: res.data.data.nonceStr,
@@ -351,12 +352,14 @@ Page(Object.assign({}, Zan.Toast, {
               console.log('模式'+1);
               if (walletNow < payment){
                 allPayment('wallet,pet_money');
+                that.showZanToast('钱包余额不足,调用钱包余额和返现余额');
               }else{
                 allPayment('wallet');
               }
             } else if (that.data.pay_type == 'pet_money') { //模式2
               console.log('模式' + 2);
               if (pet_moneyNow < payment) {
+                that.showZanToast('返现余额不足,调用返现余额和钱包余额');
                 allPayment('pet_money,wallet');
               } else {
                 allPayment('pet_money');
@@ -364,6 +367,7 @@ Page(Object.assign({}, Zan.Toast, {
             } else if (that.data.pay_type =='point') { //模式3
               console.log('模式' + 3);
               if (pointNow < payment) {
+                that.showZanToast('积分余额不足,调用积分余额和钱包余额');
                 allPayment('point,wallet');
               } else {
                 allPayment('point');

@@ -40,10 +40,11 @@
                             </view> 
                             <view wx:if="{{item.type != 1}}">待发货</view> 
                         </view>
-                        <!--order_id   receipt-->
-                        <view class="right"  wx:if="{{item.status == 'receipt'}}"> 待收货</view>
-                        <view class="right"  wx:if="{{item.status == 'finish'}}"> 已完成</view>
-                        <view class="right"  wx:if="{{item.status == 'close'}}"> 交易关闭</view>
+                        <!--order_id   receipt  cancel取消订单-->
+                        <view class="right"  wx:if="{{item.status == 'cancel'}}">交易取消</view>
+                        <view class="right"  wx:if="{{item.status == 'receipt'}}">待收货</view>
+                        <view class="right"  wx:if="{{item.status == 'finish'}}">已完成</view>
+                        <view class="right"  wx:if="{{item.status == 'close'}}">交易关闭</view>
                     </view>
                     <view class="service-item">
                         <view class="service-img">

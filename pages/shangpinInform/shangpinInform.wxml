@@ -9,6 +9,8 @@
             <image src="https://qncdn.playonwechat.com/shangcheng/pay.png" mode="widthFix"></image>
         </view>
         <view class="left2">
+            
+            <text style="color:#000"  wx:if="{{status1 == 'cancel'}}"> 交易已取消</text>
             <text style="color:#000"  wx:if="{{status1 == 'payment'}}"> 等待买家付款</text>
             <text style="color:#000"  wx:if="{{status1 == 'deliver'}}"> 等待卖家发货</text>
             <text style="color:#000"  wx:if="{{status1 == 'receipt'}}"> 等待买家收货</text>
@@ -69,9 +71,13 @@
             </view>
         </view>
     </view>
-    <view class="controllist">
-        <view class="left">配送方式</view>
-        <view class="right">{{company}}</view>
+    <view class="controllist" 
+          wx:if="{{status1 == 'payment' || status1 == 'deliver' || status1 == 'receipt' || status1 == 'finish'}}">
+        <view class="left">支付方式</view>
+        <view class="right" wx:if="{{list.point>0}}">积分支付{{list.point}}</view>
+        <view class="right" wx:if="{{list.wallet>0}}">钱包支付{{list.wallet}}</view>
+        <view class="right" wx:if="{{list.pet_money>0}}">返现支付{{list.pet_money}}</view>
+        <view class="right" wx:if="{{list.cash>0}}">微信支付{{list.cash}}</view>
     </view>
     <!-- <view class="control">
         <view class="left">留言</view>
@@ -98,7 +104,7 @@
           <view class="left">运费</view>
           <view class="right color">￥{{expenses}}</view>
       </view>
-      <view class="controllist ">
+      <view class="controllist " wx:if="{{express_no}}">
           <view class="left">运单号</view>
           <view class="right color" >{{express_no}}
               <text class='copy' bindtap='copy' data-number='{{express_no}}'>复制</text>

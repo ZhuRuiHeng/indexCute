@@ -47,7 +47,7 @@ swiper view{
 /*content  */
 .box{
   width: 70%;
-  margin: 0 auto;
+  margin: 0 auto 40rpx;
   background: #f4f4f4;
   border-radius: 20rpx;
   font-size: 28rpx;

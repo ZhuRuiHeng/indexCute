@@ -15,7 +15,7 @@ Page(Object.assign({}, Zan.Toast, {
     addCar:false,
     amount:"",
     inform:[],
-    Array: ['钱包支付', '返现支付', '积分支付'],
+    Array: ['钱包支付', '返现支付', '积分支付', '钱包余额+返现余额', '钱包余额+积分余额'],
     objectArray: [
       {
         id: 'wallet',
@@ -131,6 +131,7 @@ Page(Object.assign({}, Zan.Toast, {
     })
   },
   // 支付方式
+  // 支付方式
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value);
     let index = this.data.index;
@@ -148,6 +149,14 @@ Page(Object.assign({}, Zan.Toast, {
     } else if (e.detail.value == 2) {
       this.setData({
         pay_type: 'point'
+      })
+    } else if (e.detail.value == 3) {
+      this.setData({
+        pay_type: 'pet_money,wallet'
+      })
+    } else if (e.detail.value == 4) {
+      this.setData({
+        pay_type: 'point,wallet'
       })
     }
     console.log('index:', index);
@@ -331,7 +340,7 @@ Page(Object.assign({}, Zan.Toast, {
                         url: '../dingdan/dingdan?status='
                       })
                     } else {
-                     
+                      that.showZanToast('余额不足,不足金额将调用微信支付');
                       wx.requestPayment({
                         timeStamp: res.data.data.timeStamp,
                         nonceStr: res.data.data.nonceStr,
@@ -365,7 +374,7 @@ Page(Object.assign({}, Zan.Toast, {
                               wx.navigateTo({
                                 url: '../dingdan/dingdan?status='
                               })
-                            }, 10)
+                            }, 2000)
                           } else {
                             console.log(res.data.data.msg)
                             that.showZanToast('支付失败！');

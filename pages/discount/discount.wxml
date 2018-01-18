@@ -56,7 +56,7 @@
                   <view class='title'>{{bargainList[0].goods_title}}</view>
                   <view class='price'>
                       <view class='left'>
-                          <view>最低￥<text class='big'>0.00</text></view>   
+                          <view>最低￥<text class='big'>xxx</text></view>   
                           <text class='color'>原价￥{{bargainList[0].price}}</text>
                       </view>
                       <view class='right buttons' gid="{{bargainList[0].gid}}">

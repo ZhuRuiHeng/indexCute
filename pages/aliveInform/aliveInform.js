@@ -148,6 +148,14 @@ Page(Object.assign({}, Zan.Toast, {
       this.setData({
         pay_type: 'point'
       })
+    } else if (e.detail.value == 3) {
+      this.setData({
+        pay_type: 'pet_money,wallet'
+      })
+    } else if (e.detail.value == 4) {
+      this.setData({
+        pay_type: 'point,wallet'
+      })
     }
     console.log('index:', index);
     console.log('pay_type:', this.data.pay_type);
@@ -325,6 +333,7 @@ Page(Object.assign({}, Zan.Toast, {
                         }
                       })
                     }else{
+                      that.showZanToast('余额不足,不足金额将调用微信支付');
                       wx.requestPayment({
                         timeStamp: res.data.data.timeStamp,
                         nonceStr: res.data.data.nonceStr,
@@ -340,7 +349,7 @@ Page(Object.assign({}, Zan.Toast, {
                               wx.navigateTo({
                                 url: '../dingdan/dingdan?status='
                               })
-                            }, 300)
+                            }, 2000)
 
                             setTimeout(function () {
                               that.setData({

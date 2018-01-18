@@ -319,7 +319,7 @@ Page(Object.assign({}, Zan.Toast, {
                                 wx.navigateTo({
                                   url: '../dingdan/dingdan?status='
                                 })
-                              },300)
+                              },1000)
                               
                               // 保存formid
                               wx.request({

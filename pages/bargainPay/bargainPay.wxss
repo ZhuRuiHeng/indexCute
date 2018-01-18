@@ -211,9 +211,11 @@
 }
 .submit{
   flex:1;
-   background: #ff4444; 
+  background: #ff4444; 
   color:#fff;
   text-align: center;
+  position: relative;
+  top: 6rpx;
 }
 .top{
   margin-top: 20rpx;

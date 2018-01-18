@@ -385,7 +385,7 @@ Page(Object.assign({}, Zan.Toast, {
                               that.showZanToast('您取消了支付！');
                             }
                           })
-                      },3000)
+                      },2000)
                     }
                   } else {
                     that.showZanToast(res.data.msg);

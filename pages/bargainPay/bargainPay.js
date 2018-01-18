@@ -570,9 +570,8 @@ Page(Object.assign({}, Zan.Toast, {
                             fail: function (res) {
                               that.showZanToast('您取消了支付！');
                             }
-                          },3000)
-                        })
-                        
+                          })
+                        },2000)
                       }
                       // wx.requestPayment({
                       //   timeStamp: res.data.data.timeStamp,

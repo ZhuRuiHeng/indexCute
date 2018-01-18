@@ -350,7 +350,7 @@ Page(Object.assign({}, Zan.Toast, {
                             that.showZanToast('您取消了订单支付');
                           }
                         })
-                      }, 2000)
+                      },2000)
                     }
                   } else {
                     that.showZanToast(res.data.msg);

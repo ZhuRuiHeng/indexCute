@@ -525,51 +525,54 @@ Page(Object.assign({}, Zan.Toast, {
                         })
                       } else {
                         that.showZanToast('余额不足,不足金额将调用微信支付');
-                        wx.requestPayment({
-                          timeStamp: res.data.data.timeStamp,
-                          nonceStr: res.data.data.nonceStr,
-                          package: res.data.data.package,
-                          signType: res.data.data.signType,
-                          paySign: res.data.data.paySign,
-                          success: function (res) {
-                            let status = res.data.data.status;
-                            if (status == 1) {
-                              that.showZanToast('支付成功！');
-                              // 支付成功跳转
-                              setTimeout(function () {
-                                wx.navigateTo({
-                                  url: '../bargainInform/bargainInform?status='
-                                })
-                              }, 2000)
+                        setTimeout(function(){
+                          wx.requestPayment({
+                            timeStamp: res.data.data.timeStamp,
+                            nonceStr: res.data.data.nonceStr,
+                            package: res.data.data.package,
+                            signType: res.data.data.signType,
+                            paySign: res.data.data.paySign,
+                            success: function (res) {
+                              let status = res.data.data.status;
+                              if (status == 1) {
+                                that.showZanToast('支付成功！');
+                                // 支付成功跳转
+                                setTimeout(function () {
+                                  wx.navigateTo({
+                                    url: '../bargainInform/bargainInform?status='
+                                  })
+                                }, 2000)
 
-                              setTimeout(function () {
-                                that.setData({
-                                  gouwu: []
-                                })
-                                // 保存formid
-                                wx.request({
-                                  url: app.data.apiUrl + "/api/save-form?sign=" + wx.getStorageSync('sign'),
-                                  data: {
-                                    form_id: formId
-                                  },
-                                  header: {
-                                    'content-type': 'application/json'
-                                  },
-                                  method: "GET",
-                                  success: function (res) {
-                                    console.log('保存formid成功');
-                                  }
-                                })
-                              }, 10)
-                            } else {
-                              console.log(res.data.data.msg)
-                              that.showZanToast('支付失败！');
+                                setTimeout(function () {
+                                  that.setData({
+                                    gouwu: []
+                                  })
+                                  // 保存formid
+                                  wx.request({
+                                    url: app.data.apiUrl + "/api/save-form?sign=" + wx.getStorageSync('sign'),
+                                    data: {
+                                      form_id: formId
+                                    },
+                                    header: {
+                                      'content-type': 'application/json'
+                                    },
+                                    method: "GET",
+                                    success: function (res) {
+                                      console.log('保存formid成功');
+                                    }
+                                  })
+                                }, 10)
+                              } else {
+                                console.log(res.data.data.msg)
+                                that.showZanToast('支付失败！');
+                              }
+                            },
+                            fail: function (res) {
+                              that.showZanToast('您取消了支付！');
                             }
-                          },
-                          fail: function (res) {
-                            that.showZanToast('您取消了支付！');
-                          }
+                          },3000)
                         })
+                        
                       }
                       // wx.requestPayment({
                       //   timeStamp: res.data.data.timeStamp,

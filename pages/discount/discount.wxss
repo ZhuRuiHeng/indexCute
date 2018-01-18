@@ -339,7 +339,7 @@ page{
 }
 .left view{
   display: inline-block;
-  color: #b52e32;
+  color: #ff4444;
 }
 .buttons{
   display: flex;
@@ -350,7 +350,7 @@ page{
   position: relative;
 }
 .buttons .button{
-  background: #b52e32;
+  background: #ff4444;
   color: #fff;
   border-radius: 10rpx;
   height: 60rpx;

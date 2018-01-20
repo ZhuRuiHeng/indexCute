@@ -227,13 +227,6 @@ Page({
       url: '' + url + ''
     })
   },
-  // 滚动切换标签样式
-  switchTab: function (e) {
-    this.setData({
-      currentTab: e.detail.current
-    });
-    this.checkCor();
-  },
   // 点击标题切换当前页时改变样式
   swichNav: function (e) {
     let that = this;
@@ -334,9 +327,90 @@ Page({
   },
   // 选择月份
   bindPickermouth(e){
+    console.log(e);
+    let that = this;
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
+    that.setData({
       monthIndex: e.detail.value,
+    })
+    var cur = e.detail.value;
+    var index = e.detail.value;
+    let monthIndex = e.detail.value;
+    console.log(cur, index);
+    if (that.data.currentTaB == monthIndex) {
+      return false;
+      that.setData({
+        dowork: false
+      })
+    }
+    else {
+      that.setData({
+        currentTab: monthIndex,
+        index: index,
+        dowork: false,
+        listNum: '',
+        total_count: '',
+        width: 0
+      })
+    }
+    wx.request({
+      url: app.data.apiUrl + "/bargain/get-month-task?sign=" + wx.getStorageSync('sign') + '&operator_id=' + app.data.kid,
+      data: {
+        month: monthIndex*1 + 1
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      method: "GET",
+      success: function (res) {
+        console.log('res:', res);
+        let status = res.data.status;
+        if (status == 1) {
+          let must = res.data.data.must;
+          let point = res.data.data.point;
+          let listNum = that.data.listNum;
+          that.setData({
+            must: res.data.data.must,
+            point: res.data.data.point,
+            total_count: res.data.data.total_count
+          })
+          // finish_count
+          if (must.length) {
+            console.log(22222)
+            for (let i = 0; i < must.length; i++) {
+              console.log(must[i].finished)
+              if (must[i].finished == true) {
+                console.log('33333')
+                listNum.push(i);
+                console.log(i);
+                console.log(listNum);
+              }
+            }
+            console.log("22222222222");
+            console.log("width:", listNum.length / that.data.total_count);
+            that.setData({
+              listNum,
+              width: (listNum.length / that.data.total_count).toFixed(2) * 100
+            })
+          }
+          if (point.length) {
+            for (let i = 0; i < point.length; i++) {
+              if (point[i].finished == true) {
+                listNum.push(i);
+              }
+            }
+            console.log("width:", listNum.length / that.data.total_count);
+            that.setData({
+              listNum,
+              width: (listNum.length / that.data.total_count).toFixed(2) * 100
+            })
+          }
+          wx.hideLoading()
+        } else {
+          tips.alert(res.data.msg)
+        }
+
+      }
     })
   },
   upVideo() {

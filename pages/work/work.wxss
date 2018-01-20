@@ -108,7 +108,6 @@ swiper view{
 }
 .task-content{
   margin-left: 40rpx;
-  padding-top: 40rpx;
 }
 .task-content text{
   display: inline-block;

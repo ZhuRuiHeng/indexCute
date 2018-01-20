@@ -57,13 +57,16 @@ Page(Object.assign({}, Zan.Toast, {
   //轮播图点击跳转
   swipclick: function (e) {
     console.log(e);
-    var url = e.currentTarget.dataset.url
+    var url = e.currentTarget.dataset.url;
     wx.navigateTo({
-      url: '' + url + ''
+      url: '../webpage/webpage?url=' + url
     })
-    wx.switchTab({
-      url: '' + url + ''
-    })
+    // wx.navigateTo({
+    //   url: '' + url + ''
+    // })
+    // wx.switchTab({
+    //   url: '' + url + ''
+    // })
   },
   //搜索跳转
 search: function() {

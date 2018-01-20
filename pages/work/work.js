@@ -5,44 +5,44 @@ Page({
       state: 0,
       monethList:[
         {
-          moneth:'一月',
+          moneth:'一阶段',
           eng:'January '
         }, {
-          moneth: '二月',
+          moneth: '二阶段',
           eng: 'February '
         }, {
-          moneth: '三月',
+          moneth: '三阶段',
           eng: 'March '
         }, {
-          moneth: '四月',
+          moneth: '四阶段',
           eng: 'April '
         }, {
-          moneth: '五月',
+          moneth: '五阶段',
           eng: 'May '
         }, {
-          moneth: '六月',
+          moneth: '六阶段',
           eng: 'June '
         }, {
-          moneth: '七月',
+          moneth: '七阶段',
           eng: 'July '
         }, {
-          moneth: '八月',
+          moneth: '八阶段',
           eng: 'August '
         }, {
-          moneth: '九月',
+          moneth: '九阶段',
           eng: 'September '
         }, {
-          moneth: '十月',
+          moneth: '十阶段',
           eng: 'October '
         }, {
-          moneth: '十一月',
+          moneth: '十一阶段',
           eng: 'November '
         }, {
-          moneth: '十二月',
+          moneth: '十二阶段',
           eng: 'December '
         }
       ],
-      monethList1: [ '一月','二月','三月','四月','五月','六月','七月','八月','九月', '十月','十一月','十二月'],
+      monethList1: [ '一阶段','二阶段','三阶段','四阶段','五阶段','六阶段','七阶段','八阶段','九阶段', '十阶段','十一阶段','十二阶段'],
       joinUsre:[
         {
           icon: 'https://pet.zealcdn.cn/assets/images/icons/category/363620171231130639.jpg',
@@ -99,29 +99,29 @@ Page({
     })
     let month = date.getMonth() + 1;
     if (nowMonth==1){
-      nowMonth = '一月'
+      nowMonth = '一阶段'
     } else if (nowMonth == 2){
-      nowMonth = '二月'
+      nowMonth = '二阶段'
     } else if (nowMonth == 3) {
-      nowMonth = '三月'
+      nowMonth = '三阶段'
     } else if (nowMonth == 4) {
-      nowMonth = '四月'
+      nowMonth = '四阶段'
     } else if (nowMonth == 5) {
-      nowMonth = '五月'
+      nowMonth = '五阶段'
     } else if (nowMonth == 6) {
-      nowMonth = '六月'
+      nowMonth = '六阶段'
     } else if (nowMonth == 7) {
-      nowMonth = '七月'
+      nowMonth = '七阶段'
     } else if (nowMonth == 8) {
-      nowMonth = '八月'
+      nowMonth = '八阶段'
     } else if (nowMonth == 9) {
-      nowMonth = '九月'
+      nowMonth = '九阶段'
     } else if (nowMonth == 10) {
-      nowMonth = '十月'
+      nowMonth = '十阶段'
     } else if (nowMonth == 11) {
-      nowMonth = '十一月'
+      nowMonth = '十一阶段'
     } else if (nowMonth == 12) {
-      nowMonth = '十二月'
+      nowMonth = '十二阶段'
     }
     var strDate = date.getDate();
     var seperator = "-";
@@ -151,7 +151,7 @@ Page({
       },
       method: "GET",
       success: function (res) {
-        console.log("获取某月份", res);
+        console.log("获取某阶段份", res);
         let status = res.data.status;  
         if (status==1){
             let must = res.data.data.must;
@@ -328,7 +328,7 @@ Page({
       upIndex: e.detail.value,
     })
   },
-  // 选择月份
+  // 选择阶段份
   bindPickermouth(e){
     console.log(e);
     let that = this;

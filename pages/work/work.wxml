@@ -22,7 +22,7 @@
          <picker bindchange="bindPickermouth" value="{{index}}" name="{{index}}"
                   current="{{index}}" range="{{monethList}}" range-key="{{'moneth'}}">
           <view class="picker title">
-            {{monethList1[monthIndex]}}{{location[index]}}任务
+            第{{monethList1[monthIndex]}}{{location[index]}}任务
             <image bindchange="bindPickermouth" class='rol' src="../img/rols.png" mode='widthFix'></image>
           </view>
         </picker> 
@@ -92,7 +92,7 @@
     <view class='box' wx:else>
         <view class='title-content'>
               <picker class='left' bindchange="bindPickermouth" value="{{index}}" range="{{monethList}}" range-key="{{'moneth'}}">  <view class="picker">
-                  {{monethList1[monthIndex]}}{{location[index]}}任务
+                  第{{monethList1[monthIndex]}}{{location[index]}}任务
                 </view>
               </picker> 
             <view class='right'>{{listNum.length}}/{{total_count}}</view>

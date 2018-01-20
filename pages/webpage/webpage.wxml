@@ -1,4 +1,4 @@
 <view class="container">
-    <web-view class="webview"  src="https://mp.weixin.qq.com/s?__biz=MzU3OTA2MDczMw==&tempkey=OTQwX0JjWEcyMCtIUm0wWkxIbkI3NGVZLVBTSjhscDBWeGh5UTAtU1V4TklRWGxrelFoRThLdHBtVE8yV1lEMkw1WFlXeTZTOGFzNU4zLXJkclNCSTFZSDdGQlBkeVlpa1gxbmxqclE4ekJvQUQ2RUZ2OHJSWTJvMTZSV1E4U2JiYXljMGRBRUcwbE9sY0I2dWlxd2lub21kQkw3VlA1cUlOS0N1MmNJand%2Bfg%3D%3D&chksm=7d6a8fb24a1d06a43b1982498d97580780bd916570c91e764a25c5328dcb55bab3d01efd8a8a&mpshare=1&scene=1&srcid=0120gHahdAkgMoOp2lEbT1GL&key=&ascene=1&uin=&devicetype=Windows+7&version=62060028&lang=zh_CN&winzoom=1"></web-view>
+    <web-view class="webview"  src="{{url}}"></web-view>
 </view>
 

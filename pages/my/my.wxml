@@ -43,6 +43,15 @@
         <view class="classname"><image src="../images/jiang.png" mode="widthFix"></image>会员中心</view>
         <view class="nextImg"><image src="https://qncdn.playonwechat.com/shangcheng/next.png" mode="widthFix"/></view> 
     </view> -->
+    <view class="xuanze" bindtap="clickSign">
+        <view class="classname">
+            <image src="../img/qiandao.png" mode="widthFix"></image>
+            <text>签到获积分</text>
+        </view>
+        <view class="nextImg">{{point*1}}积分
+            <image src="https://qncdn.playonwechat.com/shangcheng/next.png" mode="widthFix"/>
+        </view> 
+    </view>
     <view class="xuanze" bindtap="payCar">
         <view class="classname">
             <image src="../images/gouwu.png" mode="widthFix"></image>
@@ -85,7 +94,7 @@
         </view>
         <view class="nextImg"><image src="https://qncdn.playonwechat.com/shangcheng/next.png" mode="widthFix"/></view> 
     </view>
-    <button open-type='contact' class='buttonKefu'>
+    <button open-type='contact' class='buttonKefu' bindtap='clickChart'>
         <view class="xuanze bottom" style="position:relative;padding:8rpx 20rpx;">
               <view class="kefu">
                   <image src="../images/kefu.png" mode="widthFix"></image>

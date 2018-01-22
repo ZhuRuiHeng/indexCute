@@ -18,7 +18,7 @@ Page(Object.assign({}, Zan.Toast, {
     duration: 1000,
     page: 0,  //分页
     addCar: false,//打开购物车
-    closeCar: true,//关闭购物车
+    closeCar: true,//关闭购物车swipclick
     price: 1,//购物车数量
     minusStatus: 'disabled',//数量为1禁用
     sum:'',//购物车id
@@ -59,7 +59,7 @@ Page(Object.assign({}, Zan.Toast, {
     console.log(e);
     var url = e.currentTarget.dataset.url;
     wx.navigateTo({
-      url: '../webpage/webpage?url=' + url
+      url: '../weixin/weixin'
     })
     // wx.navigateTo({
     //   url: '' + url + ''

@@ -32,6 +32,7 @@
     "pages/shoucang/shoucang",
     "pages/share/share",
     "pages/poster/poster",
+    "pages/weixin/weixin",
     "pages/work/work",
     "pages/workList/workList",
     "pages/fenlei/fenlei",

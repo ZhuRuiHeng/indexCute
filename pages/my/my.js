@@ -2,6 +2,7 @@
 //获取应用实例
 var app = getApp();
 var sign = wx.getStorageSync('sign');
+import tips from '../../utils/tips.js'
 Page({
     data: {
         userInfo: [{
@@ -41,7 +42,7 @@ Page({
       var sign = wx.getStorageSync('sign');
       console.log("mid", options.mid);
       // 生命周期函数--监听页面加载  
-      showView: (options.showView == "false" ? true : false)
+      showView: (options.showView == "false" ? true : false);
     },
     // 分享
     fenxiang: function(){
@@ -50,6 +51,7 @@ Page({
         showView: (!that.data.showView)
       })  
     },
+   
     onChangeShowState: function () {
       var that = this;
       that.setData({
@@ -97,12 +99,33 @@ Page({
     },
     onShow: function () {
       wx.hideShareMenu();
+      var that = this;
       var sign = wx.getStorageSync('sign');
       wx.showToast({
         title: '加载中',
         icon: 'loading'
       })
-      var that = this;
+      // 积分
+      wx.request({
+        url: app.data.apiUrl2 + "/bargain/my-wallet?sign=" + sign,
+        header: {
+          'content-type': 'application/json'
+        },
+        method: "GET",
+        success: function (res) {
+          let status = res.data.status;
+          if (status == 1) {
+            console.log("余额", res.data.data);
+            that.setData({
+              allMoney: res.data.data,
+              point: res.data.data.point
+            })
+          } else {
+            tips.alert(res.data.msg);
+          }
+          wx.hideLoading()
+        }
+      })
       var signData = wx.getStorageSync("loginData");
       
       var avatarUrl = wx.getStorageSync("avatarUrl");
@@ -170,6 +193,30 @@ Page({
             })
           }
           wx.hideLoading()
+        }
+      })
+    },
+    // 签到
+    clickSign(e){
+      let that = this;
+      wx.request({
+        url: app.data.apiUrl2 + "/api/sign?sign=" + wx.getStorageSync('sign'),
+        header: {
+          'content-type': 'application/json'
+        },
+        method: "GET",
+        success: function (res) {
+          let status = res.data.status;
+          if (status == 1) {
+            console.log("签到", res.data.data);
+            tips.success('签到成功！');
+            that.setData({
+              point: (that.data.point*1)+1
+            })
+            wx.hideLoading()
+          } else {
+            tips.alert(res.data.msg);
+          }
         }
       })
     },

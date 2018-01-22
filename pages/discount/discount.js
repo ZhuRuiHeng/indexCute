@@ -193,7 +193,7 @@ Page(Object.assign({}, Zan.Toast, {
     console.log(e);
     var url = e.currentTarget.dataset.url;
     wx.navigateTo({
-      url: '../webpage/webpage?url=' + url
+      url: '../weixin/weixin'
     })
     // wx.navigateTo({
     //   url: '' + url + ''

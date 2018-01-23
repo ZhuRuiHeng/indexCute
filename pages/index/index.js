@@ -575,6 +575,10 @@ onLoad: function (options) {
       wx.navigateTo({
         url: '../bargainShare/bargainShare?bargain_id=' + that.data.bargain_id,
       })
+    } else if (strs[2] == 'share') {
+      wx.navigateTo({
+        url: '../weixin/weixin',
+      })
     } else if (strs[0] == 'shop'){
       that.setData({
         gid: strs[2]

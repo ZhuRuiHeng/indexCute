@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.5.4",
+	"libVersion": "1.9.1",
 	"appid": "wxc828404c5024d524",
 	"projectname": "%E5%AE%A0%E5%AE%A0%E9%82%A6",
 	"condition": {
@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 28,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
@@ -37,7 +37,7 @@
 					"id": 1,
 					"name": "首页",
 					"pathName": "pages/index/index",
-					"query": "scene=bargain_26"
+					"query": "scene=shop_h5_share_mid"
 				},
 				{
 					"id": 2,
@@ -200,6 +200,12 @@
 					"name": "微信h5",
 					"pathName": "pages/weixin/weixin",
 					"query": "mid=145&gid=43"
+				},
+				{
+					"id": -1,
+					"name": "tixian",
+					"pathName": "pages/weixin/weixin",
+					"query": "scence=shop_h5_share_mid"
 				}
 			]
 		}

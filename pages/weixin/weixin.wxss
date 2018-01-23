@@ -58,13 +58,13 @@ page{
   background: #626262;
   color: #fff;
   border-radius: 50rpx;
-  width: 180rpx;
-  padding: 6rpx 0;
+  width: 200rpx;
+  padding: 10rpx 0;
 }
 .fixed button{
   background: #626262;
   color: #fff;
-  font-size: 20rpx;
+  font-size: 22rpx;
   border-radius: 50rpx;
   padding: 0 10rpx;
   line-height: inherit;
@@ -72,17 +72,17 @@ page{
   justify-content: flex-start;
 }
 .fixed view{
-  padding-right: 20rpx;
+  padding-right: 26rpx;
   vertical-align: middle;
   position: relative;
-  top: 6rpx;
+  top: 9rpx;
 }
 button:after{
   content: none;
 }
 .fixed image{
-  width: 40rpx;
-  height: 40rpx;
+  width: 50rpx;
+  height: 50rpx;
   vertical-align: middle;
   border-radius: 50%;
   margin-right: 6rpx;

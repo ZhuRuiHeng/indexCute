@@ -13,6 +13,7 @@ App({
     authSuccess: false,
     apiUrl: 'https://pet.zealcdn.cn/index.php/v1',
     apiUrl2: 'https://pet.zealcdn.cn/index.php/v2',
+    apiUrl3: 'https://pet.zealcdn.cn/index.php/v3',
     apiUrl1: 'https://pet.zealcdn.cn/index.php'
   },
   onLaunch: function () {

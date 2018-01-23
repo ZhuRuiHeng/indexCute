@@ -1,7 +1,7 @@
 <!--pages/weixin/weixin.wxml-->
 <view class='contain'>
     <view class='title'>
-      狗年福利，有位土豪给每个苏州人发了一个红包！                                    
+      @所有苏州人，狗年福利，10只狗狗免费送，手慢无                                    
     </view>
     <view class='img'>
         <image src="https://pet.zealcdn.cn/chong/img/0.gif" mode='widthFix'></image>

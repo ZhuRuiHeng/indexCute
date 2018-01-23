@@ -213,7 +213,7 @@ Page({
             that.setData({
               point: (that.data.point*1)+1
             })
-            wx.hideLoading()
+           // wx.hideLoading()
           } else {
             tips.alert(res.data.msg);
           }

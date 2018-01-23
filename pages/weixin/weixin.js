@@ -53,34 +53,41 @@ Page({
     wx.showLoading({
       title: '海报生成中',
     });
-    wx.request({
-      url: app.data.apiUrl2 + "/api/share-goods?sign=" + sign,
-      data: {
-        gid: that.data.gid
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      method: "GET",
-      success: function (res) {
-        console.log("shar:", res);
-        console.log("海报", res.data.data);
-        that.setData({
-          imgUrl: res.data.data,
-          shareList: false
-        })
-        console.log("prewImg:", that.data.imgUrl);
-        wx.previewImage({
-          current: that.data.imgUrl, // 当前显示图片的http链接
-          urls: [that.data.imgUrl] // 需要预览的图片http链接列表
-        })
-        wx.hideLoading();
-        that.setData({
-          share: false
-        })
-        wx.hideLoading()
-      }
-    })
+    wx.showLoading({
+      title: '暂未开通！',
+    });
+    setTimeout(function(){
+      wx.hideLoading()
+    },2000)
+    
+    // wx.request({
+    //   url: app.data.apiUrl2 + "/api/share-goods?sign=" + sign,
+    //   data: {
+    //     gid: that.data.gid
+    //   },
+    //   header: {
+    //     'content-type': 'application/json'
+    //   },
+    //   method: "GET",
+    //   success: function (res) {
+    //     console.log("shar:", res);
+    //     console.log("海报", res.data.data);
+    //     that.setData({
+    //       imgUrl: res.data.data,
+    //       shareList: false
+    //     })
+    //     console.log("prewImg:", that.data.imgUrl);
+    //     wx.previewImage({
+    //       current: that.data.imgUrl, // 当前显示图片的http链接
+    //       urls: [that.data.imgUrl] // 需要预览的图片http链接列表
+    //     })
+    //     wx.hideLoading();
+    //     that.setData({
+    //       share: false
+    //     })
+    //     wx.hideLoading()
+    //   }
+    // })
   },
   // 取消
   cancel() {
@@ -97,5 +104,20 @@ Page({
       current: img, // 当前显示图片的http链接
       urls: img1 // 需要预览的图片http链接列表
     })
+  },
+  jump(e) {
+    wx.showLoading({
+      title: '加载中',
+    });
+    wx.navigateToMiniProgram({
+      appId: 'wx2f9558144968e3a8',
+      path: 'pages/index/index',
+      envVersion: 'release',
+      success(res) {
+        // 打开成功
+        console.log(res);
+      }
+    })
+    wx.hideLoading()
   },
 })

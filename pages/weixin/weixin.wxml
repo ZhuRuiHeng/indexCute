@@ -144,7 +144,7 @@
 <view class='fixed'>
     <button open-type='contact' class='buttonKefu' bindtap='clickChart'>
           <image src="../img/0.jpg" mode='widthFix'></image>
-          <view class=''>获得更多集卡抽奖机会</view>
+          <view class=''>咨询客服</view>
     </button>
 </view>
 <view class='bar'>

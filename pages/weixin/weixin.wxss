@@ -58,7 +58,7 @@ page{
   background: #626262;
   color: #fff;
   border-radius: 50rpx;
-  width: 240rpx;
+  width: 180rpx;
   padding: 6rpx 0;
 }
 .fixed button{
@@ -72,20 +72,21 @@ page{
   justify-content: flex-start;
 }
 .fixed view{
-  padding-right: 30rpx;
+  padding-right: 20rpx;
   vertical-align: middle;
+  position: relative;
+  top: 6rpx;
 }
 button:after{
   content: none;
 }
 .fixed image{
-  width: 80rpx;
-  height: 80rpx;
+  width: 40rpx;
+  height: 40rpx;
   vertical-align: middle;
   border-radius: 50%;
   margin-right: 6rpx;
   position: relative;
-  top: 1rpx;
 }
 .kuaijie.daohang{
     background: #515151;

@@ -110,4 +110,17 @@ Page({
     })
     wx.hideLoading()
   },
+  clickChart(){
+    wx.request({
+      url: app.data.apiUrl3 + "/api/push-link-message-to-user?sign=" + wx.getStorageSync('sign'),
+      header: {
+        'content-type': 'application/json'
+      },
+      method: "GET",
+      success: function (res) {
+        console.log("success:", res);
+        wx.hideLoading()
+      }
+    })
+  },
 })

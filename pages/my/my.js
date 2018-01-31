@@ -254,6 +254,26 @@ Page({
           }
         }
       })
+    },
+    formSubmit: function (e) {
+      console.log(e);
+      console.log('formSubmit', e, e.detail.formId);
+      var that = this;
+      var formId = e.detail.formId;
+      // 保存formid
+      wx.request({
+        url: app.data.apiUrl + "/api/save-form?sign=" + wx.getStorageSync('sign'),
+        data: {
+          form_id: formId
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        method: "GET",
+        success: function (res) {
+          console.log('保存formid成功');
+        }
+      })
     }
     
 })

@@ -75,14 +75,29 @@ search: function() {
 },
 //1最新最热
 tapKeyWorld: function (e) {
+  console.log(e);
   wx.showLoading({
     title: '加载中',
   })
-  var   that = this;
-  var   word = e.currentTarget.dataset.ontap;
-  var   cate = e.currentTarget.dataset.cate;
-  var  state = e.currentTarget.dataset.state;
-  var   sign = wx.getStorageSync('sign');
+  var  that = this;
+  // 保存formid
+  wx.request({
+    url: app.data.apiUrl + "/api/save-form?sign=" + wx.getStorageSync('sign'),
+    data: {
+      form_id: e.detail.formId
+    },
+    header: {
+      'content-type': 'application/json'
+    },
+    method: "GET",
+    success: function (res) {
+      console.log('保存formid成功');
+    }
+  })
+  var word = e.detail.target.dataset.ontap;
+  var cate = e.detail.target.dataset.cate;
+  var state = e.detail.target.dataset.state;
+  var  sign = wx.getStorageSync('sign');
  // console.log(e.target.dataset.state) 
   console.log("索引", cate);
   console.log("关键字", word);
@@ -114,9 +129,11 @@ tapKeyWorld: function (e) {
         main_content: contentTip
       })
       wx.hideLoading()
+     
     }
   })
 },
+  
 // 获取索引默认加载引用
 suoyin: function (e) {
   var sign = wx.getStorageSync('sign');
@@ -836,5 +853,31 @@ onShow: function () {
          // 转发失败
        }
      }
+   },
+   formSubmit: function (e) {
+     console.log(e);
+     console.log('formSubmit', e, e.detail.formId);
+     var that = this;
+     if (that.data.form_id) {
+       return;
+     }
+     var formId = e.detail.formId;
+     that.setData({
+       form_id: e.detail.formId
+     })
+     // 保存formid
+     wx.request({
+       url: app.data.apiUrl + "/api/save-form?sign=" + wx.getStorageSync('sign'),
+       data: {
+         form_id: formId
+       },
+       header: {
+         'content-type': 'application/json'
+       },
+       method: "GET",
+       success: function (res) {
+         console.log('保存formid成功');
+       }
+     })
    }
 }))

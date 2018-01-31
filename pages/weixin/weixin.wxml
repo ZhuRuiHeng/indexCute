@@ -1,152 +1,190 @@
 <!--pages/weixin/weixin.wxml-->
-<view class='contain'>
-    <view class='title'>
-      @所有苏州人，狗年福利，10只狗狗免费送，手慢无                                    
-    </view>
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/0.gif" mode='widthFix'></image>
-    </view>
-    <view class='text'>狗年将近，你的朋友圈是这样的：</view>
-    <view class='text'>晒支付宝账单，感慨自己又穷了</view>
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/0.jpg" mode='widthFix'></image>
-    </view>
-    <view class='text'>晒十八岁照片，感慨自己又老了</view>
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/1.jpg" mode='widthFix'></image>
-    </view>
-    <view class='text'>然而，这已经是过去时了</view>
-    <view class='text'>现在，宠叔教你一个狗年新“晒”法</view>
-    <view class='text strong'>要想狗年一旺到底</view>
-    <view class='text strong'>你的朋友圈应该这样的！</view>
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/23.png" mode='widthFix'></image>
-    </view>			
-    <view class='text'>新年朋友圈想要与众不同</view>			
-    <view class='text'>一只狗就能让你晒出不一样的幸福生活</view>               
-		<view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/8.jpg" mode='widthFix'></image>
-    </view>								
-		<view class='text'>
-				<text class='red'>宠宠邦</text><text>正式推出</text><text class='red'>新年福利</text>	
-		</view>			
-    <view class='text'>
-					<text>只要你够</text>					
-					<text class='blue'>执着</text>							
-					<text>，就能获得你的</text>	
-          <text class='blue'>新年狗子</text>							
-		</view>										
-		<view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/9.jpg" mode='widthFix'></image>
-    </view>	
-    <view class='Title'>狗子展示</view>			
-    <view class='text'>
-				<text class='red'>/比熊/</text>
-        <text>甜美的小公举</text>
-        <text>乖巧可爱</text>
-		</view>	
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/11.jpg" mode='widthFix'></image>
-    </view>
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/10.jpg" mode='widthFix'></image>
-    </view>
-    <view class='text'>
-				<text class='red'>/边牧/</text>
-        <text>国民新宠神</text>
-        <text>智商颜值都超高</text>
-		</view>	
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/12.jpg" mode='widthFix'></image>
-    </view>
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/13.jpg" mode='widthFix'></image>
-    </view>
-    <view class='text'>
-				<text class='red'>/泰迪/</text>
-        <text>拥有这样暖心的小家伙</text>
-        <text>人生才完美</text>
-		</view>
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/14a.jpg" mode='widthFix'></image>
-    </view>
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/15.jpg" mode='widthFix'></image>
-    </view>
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/22.jpg" mode='widthFix'></image>
-    </view>
-    <view class='text'>是不是很心动了呢？</view>
-		<view class='text'>只要符合以下条件：</view>					
-		<view class='req'>
-       <view><text class='strong'>1.</text>必须是<text class='strong blue'>苏州本地用户</text></view>
-       <view><text class='strong'>2.</text>狗贩子、虐狗者请走开</view>
-       <view><text class='strong'>3.</text>	有能力给狗狗好的生活（包括衣食住行）</view>
-       <view><text class='strong'>4.</text>符合合格铲屎官条件，并交付押金、签订合约（押金将于1个月后退还）</view>
-    </view>							
-		<view class='text strong red'>活动参与方式请咨询客服小姐姐哦</view>
-		<view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/16.jpg" bindtap='imgPreview' mode='widthFix'></image>
-    </view>																	
-		<view class='text'>如果参与活动的你，没能赢得大奖</view>		
-    <view class='text'>不要伤心，不要难过</view>
-		<view class='text'>   
-        <text>这里还有更好的</text>
-				<text class='red'>养宠福利</text>			
-    </view>			
-		<view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/14b.jpg" mode='widthFix'></image>
-    </view>		
-    <view class='text'>
-				<text class='red'>宠宠邦新年彩蛋——</text>			
-    </view>							
-		<view class='text big'>
-				<text class='red'>“购宠新模式”</text>			
-    </view>
-    <view class='text'>
-        在经过 <text class='black strong'>宠宠邦</text> 的 <text class='red strong'>真爱考验</text>		
-    </view>	
-    <view class='text'>
-        确定你是一位<text class='red strong'>合格</text>的<text class='red strong'>铲屎官</text> 后			
-    </view>	
-    <view class='text'>
-        我们将会通过平台逐步把<text class='red strong'>购宠金额全部退给你</text>			
-    </view>	
-    <view class='text red'>
-        仅限前10位		
-    </view>	
-    <view class='img'>
-        <image src="https://pet.zealcdn.cn/chong/img/17.jpg" mode='widthFix'></image>
-    </view>
-    <view class='box'>
-        <view class='left'>
-            <image src="https://pet.zealcdn.cn/chong/img/16.jpg" bindtap='imgPreview'  mode='widthFix'></image>
-        </view>
-        <view class='right'>
-            <view class='top'>可爱的客服小姐姐等你哦</view>
-            <view class='block strong'>本次活动仅限苏州本地</view>
-        </view>
-    </view>
-    <view class='text'>
-        我们在江苏省苏州市姑苏区吴中西路401号 	
-    </view>	
-    <view class='text'>
-        原墅名君别院（太湖明珠酒店旁）	
-    </view>
-    <view class='text'>
-        10栋108宠宠邦体验工作室	
-    </view>
-    <view class='text'>
-        欢迎来撸猫撸狗哦~	
-    </view>																																																		
-</view> 
+<form report-submit="true" bindsubmit="formSubmit" class="formSubmit" >
+      <button formType="submit" class="submit" style='border-radius:0'>
+          <view class='contain'>
+              <view class='title'>
+                免费送10只狗，苏州这家宠物工作室的老板疯了，要给全城爱宠人士送礼！                                    
+              </view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/0.gif" mode='widthFix'></image>
+              </view>
+              <view class='text'>狗年将近，你的朋友圈是这样的：</view>
+              <view class='text'>晒支付宝账单，感慨自己又穷了</view>
+              <view class='text'>晒十八岁照片，感慨自己又老了</view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/0.jpg" mode='widthFix'></image>
+              </view>
+              <view class='text'>新的一年，难道还要这样继续下去？</view>
+              <view class='text'>现在，宠叔教你一个狗年“晒”法</view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/23.png" mode='widthFix'></image>
+              </view>			
+              <view class='text'>为了让大家<text class="yellow size strong">旺</text>起来</view>			
+              <view class='text yellow'>宠宠邦 正式推出 新年“汪”福利</view> 
+              <view class='text'><text class="yellow size strong">10只</text>萌狗免费送</view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/9.jpg" mode='widthFix'></image>
+              </view>	
+              <view class='Title'>宠宠邦</view>		
+              <view class='text'>是<text class="yellow">全国第一家</text>推行</view>
+              <view class='text'><text class="yellow">购买即返现</text>的购宠新模式平台</view>
+              <view class='text'>网上平台选宠，成交<text class="yellow">专车送货上门</text></view>
+              <view class='text'>（也支持线下购买）</view>
+              <view class='text'>品种齐全，<text class="yellow">1V1客服服务</text></view>
+              <view class='text'>签订购宠协议，健康有保障</view>	
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/640.jpg" mode='widthFix'></image>
+              </view>
+              <view style="max-width: 100%;box-sizing: border-box;min-height: 1em;font-size: 14px;text-align: center;letter-spacing: 2px;word-wrap: break-word !important;"><text style="max-width: 100%;color: #626262;font-family: 微软雅黑;font-size: 12px;box-sizing: border-box !important;word-wrap: break-word !important;">▲部分客户签订合同现场</text></view>
+              <view class='text'>本次活动有10只狗狗哦~</view>
+              <view class='text'>只要符合以下条件：</view>
+              <view class='all'>
+                  <view class='text'>1.<text class='yellow strong'>苏州本地用户</text>（因不少外地朋友想参与，接触君决定额外送出<text class="strong">3只萌狗</text>给外地朋友）</view>
+                  <view class='text'>2.狗贩子、虐狗者请走开</view>
+                  <view class='text'>3.有能力给狗狗好的生活（包括衣食住行）</view>
+                  <view class='text'>4.本次活动最终解释权归宠宠邦所有</view>
+              </view>
+              <view class='text yellow strong'>参与集卡活动，集满之后添加客服宠叔</view>
+              <view class='text yellow strong'>领取入群门票哦</view>
+              <view class='text' style='color:#626262;font-size:24rpx;'>为了排除小号作弊、开挂等等恶劣行为，让大家真正凭自己的运气赢得奖品，特地设置门票关卡，并提高门票发放数量，让大家更容易获得大奖</view>
+              <view class='img'>
+                  <image bindtap='imgPreview' src="https://pet.zealcdn.cn/chong/img/16.jpg?{{num}}" mode='widthFix'></image>
+              </view>
+              <view class='text'>
+              <text style="max-width: 100%;color:#626262;font-family: 微软雅黑;font-size: 12px;box-sizing: border-box !important;word-wrap: break-word !important;">△想了解的添加宠叔微信咨询</text>
+              </view>
+              <view class='dog'>狗子展示</view>
+              <view class='dogTitle'>
+                  <view class='bgTitle1'>巴哥</view>
+              </view>
+              <view class='text'>丑萌的家伙</view>
+              <view class='text'>看一眼就喜欢</view>		
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/26.jpg" mode='widthFix'></image>
+              </view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/27.jpg" mode='widthFix'></image>
+              </view>
+              <view class='dogTitle'>
+                  <view class='bgTitle1'>比熊</view>
+              </view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/10.jpg" mode='widthFix'></image>
+              </view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/11.jpg" mode='widthFix'></image>
+              </view>
+              <view class='dogTitle'>
+                  <view class='bgTitle1'>金毛</view>
+              </view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/28.jpg" mode='widthFix'></image>
+              </view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/29.jpg" mode='widthFix'></image>
+              </view>	
+              <view class='dogTitle'>
+                  <view class='bgTitle2'>拉布拉多</view>
+              </view>
+              <view class='text'>最好的小伙伴</view>
+              <view class='text'>机智勇敢</view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/30.jpg" mode='widthFix'></image>
+              </view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/31.jpg" mode='widthFix'></image>
+              </view>
+              <view class='dogTitle'>
+                  <view class='bgTitle1'>泰迪
+                  </view>
+              </view>
+              <view class='text'>拥有这样暖心的小家伙</view>
+              <view class='text'>人生完美</view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/32.jpg" mode='widthFix'></image>
+              </view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/33.jpg" mode='widthFix'></image>
+              </view>	
+              <view class='dogTitle'>
+                  <view class='bgTitle1'>博美</view>
+              </view>
+              <view class='text'>拥有这样暖心的小家伙</view>
+              <view class='text'>人生完美</view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/34.jpg" mode='widthFix'></image>
+              </view>
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/35.jpg" mode='widthFix'></image>
+              </view>			
+              <view class='img'>
+                  <image src="https://pet.zealcdn.cn/chong/img/22.jpg" mode='widthFix'></image>
+              </view>		
+              <view class='text yellow'>活动时间：2018.1.27-送完为止</view>	
+              <view class='text yellow'>赶紧加宠宠叔微信咨询吧</view>																																	<view class='img width'>
+                  <image bindtap='imgPreview' src="https://pet.zealcdn.cn/chong/img/16.jpg?{{num}}" mode='widthFix'></image>
+              </view>	
+              <view class='text'>如果参与活动的你，没能赢得大奖</view>	
+              <view class='text'>不要伤心，不要难过</view>	
+              <view class='text'>这里还有更好的<text class="yellow strong">养宠福利</text></view>			
+              <view class='img width'>
+                  <image src="https://pet.zealcdn.cn/chong/img/14b.jpg" mode='widthFix'></image>
+              </view>	
+              <view class='text yellow strong'>宠宠邦新年彩蛋——</view>	
+              <view class='strong bgBlack'>“购宠新模式”</view>		
+              <view class='text '>在经过 <text class='strong'>宠宠邦</text><text class='yellow strong'>真爱考验</text> </view>
+              <view class='text '>确定你是一位  
+                  <text class='strong'>宠宠邦</text><text class='yellow strong'>真爱考验</text> 
+              </view>	
+              <view class='text '>在经过 <text class='yellow strong'>合格</text>
+                  的<text class='yellow strong'> 铲屎官</text>  后
+              </view>		
+              <view class='text '>我们将会通过平台逐步把 <text class='yellow strong'>购宠金额全部退给你</text></view>	
+              <view class='strong bgBlack'>“每日特价优惠”</view>		
+              <view class='text '>每天推出 <text class='strong'>1款</text><text class='yellow strong'>特价狗狗</text> </view>
+              <view class='text '>品相好，超级萌，手慢无</view>	
+              <view class='text '>我们将会通过平台逐步把 <text class='yellow strong'>购宠金额全部退给你</text></view>	 
+              <view class='strong bgBlack'>“我们的地址”</view>		
+              <view class='text yellow'>苏州市姑苏区吴中西路401号10栋108</view>
+              <view class='text '>宠宠邦体验工作室</view>	
+              <view class='text '>欢迎各位没狗子没喵的朋友 </view>
+              <view class='text '>来我们这里撸猫撸狗哦~ </view>	
+              <!-end-  -->
+              <view class='end'>
+                <view class='one'>
+                    <view class='text'>想要更多萌宠</view>
+                    <view class='text'>请关注我们</view>
+                    <view class='text'>宠宠邦</view>
+                </view>
+                <view class='two'>
+                    <image bindtap='imgPreview1' src="https://pet.zealcdn.cn/chong/img/37.jpg" mode='widthFix'></image>
+                </view>
+              </view>
+              <view class='bird'><image src="https://pet.zealcdn.cn/chong/img/36.png"  mode='widthFix'></image></view>
+              <view class='postion img width'>
+                  <image src="https://pet.zealcdn.cn/chong/img/38.png"  mode='widthFix'></image>
+              </view>
+              <view class='img width last'>
+                  <image src="https://pet.zealcdn.cn/chong/img/39.png"  mode='widthFix'></image>
+              </view>
+          </view> 
+      </button>
+</form>
 <!--聊天  -->
-<view class='fixed'>
+ <!-- <form class='fixed' report-submit="true" bindsubmit="formSubmit" >
+      <button class="submit" style='border-radius:0'>
+            <button open-type='contact' class='buttonKefu submit' >
+                <image src="../img/0.jpg" mode='widthFix'></image>
+                <view class=''>咨询客服</view>
+            </button>
+      </button>
+</form>  -->
+ <view class='fixed'>
     <button open-type='contact' class='buttonKefu' bindtap='clickChart'>
           <image src="../img/0.jpg" mode='widthFix'></image>
           <view class=''>咨询客服</view>
     </button>
-</view>
+</view>   
 <view class='bar'>
     <view class='kuaijie daohang daohangw show' bindtap="fenxiang">分享好友</view>
 </view>

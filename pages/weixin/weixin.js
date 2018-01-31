@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    num:Math.random()
   },
 
   /**
@@ -87,9 +87,19 @@ Page({
   },
   //轮播图预览
   imgPreview: function (e) { //图片预览
-  console.log(e);
-  let img = 'https://pet.zealcdn.cn/chong/img/16.jpg'
-  let img1 = img.split()
+    console.log(e);
+    let img = 'https://pet.zealcdn.cn/chong/img/16.jpg'
+    let img1 = img.split();
+    wx.previewImage({
+      current: img, // 当前显示图片的http链接
+      urls: img1 // 需要预览的图片http链接列表
+    })
+  },
+
+  imgPreview1(e){
+    console.log(e);
+    let img = 'https://pet.zealcdn.cn/chong/img/37.jpg'
+    let img1 = img.split();
     wx.previewImage({
       current: img, // 当前显示图片的http链接
       urls: img1 // 需要预览的图片http链接列表
@@ -110,7 +120,9 @@ Page({
     })
     wx.hideLoading()
   },
-  clickChart(){
+  clickChart(e){
+    var that = this;
+    console.log(e);
     wx.request({
       url: app.data.apiUrl3 + "/api/push-link-message-to-user?sign=" + wx.getStorageSync('sign'),
       header: {
@@ -121,6 +133,33 @@ Page({
         console.log("success:", res);
         wx.hideLoading()
       }
-    })
+    }) 
   },
+  formSubmit: function (e){
+    console.log(e);
+    console.log('formSubmit', e, e.detail.formId);
+    var that = this;
+    if (that.data.form_id) {
+      return;
+    }
+    var formId = e.detail.formId;
+    that.setData({
+      form_id: e.detail.formId
+    })
+    // 保存formid
+    wx.request({
+      url: app.data.apiUrl + "/api/save-form?sign=" + wx.getStorageSync('sign'),
+      data: {
+        form_id: formId
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      method: "GET",
+      success: function (res) {
+        console.log('保存formid成功');
+      }
+    })
+  }
+  
 })

@@ -1,6 +1,14 @@
 page{
   background: #fff;
 }
+form,form button{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.button-hover{
+  background: none;
+}
 .contain{
   font-size: 26rpx;
   text-align: center;
@@ -156,4 +164,88 @@ button:after{
     opacity: 0.6;
     z-index: 6;
     overflow: hidden;
+}
+.yellow{
+  color: rgb(214, 168, 65);
+}
+.size{
+  font-size: 32rpx;
+}
+.all{
+  border: 1px solid #eee;
+  text-align: left;
+  padding: 20rpx;
+  margin: 20rpx 0;
+}
+.dog{
+    border-color: rgb(214, 168, 65);
+    color: #ffffff;
+    background-color: rgb(214, 168, 65);
+    padding: 10rpx;
+}
+.dogTitle{
+  text-align: center;
+  margin: 20rpx 0;
+}
+.bgTitle1{
+  width:200rpx;
+  height: 120rpx;
+  line-height: 86rpx;
+  display: inline-block;
+  background: url(https://pet.zealcdn.cn/chong/img/40.png) no-repeat;
+  background-size: contain;
+  color: #ffffff;
+}
+.bgTitle2{
+  width:258rpx;
+  height: 120rpx;
+  line-height: 106rpx;
+  display: inline-block;
+  background: url(https://pet.zealcdn.cn/chong/img/40.png) no-repeat;
+  background-size: contain;
+  color: #ffffff;
+}
+.width{
+  width: 80%;
+  margin: 0 auto;
+}
+.bgBlack{
+  background: #000000;
+  color: #ffffff;
+  padding: 10rpx;
+  width: 300rpx;
+  margin: 20rpx auto;
+}
+.end{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(255, 153, 169);
+  color: #ffffff;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 30rpx;
+  padding: 20rpx 20rpx 100rpx 20rpx;
+}
+.end image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.bird{
+  width: 100%;
+  position: relative;
+  z-index: 9;
+  top: -30rpx;
+}
+.bird image{
+  width: 200rpx;
+  margin: 0 auto;
+}
+.postion{
+  position: relative;
+  top: -190rpx;
+  width: 100%;
+}
+.last image{
+  width: 160rpx;
+  height: 160rpx;
 }

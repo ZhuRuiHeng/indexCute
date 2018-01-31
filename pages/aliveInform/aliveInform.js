@@ -255,6 +255,7 @@ Page(Object.assign({}, Zan.Toast, {
   },
 //提交订单
   formSubmit: function (e) {
+    console.log(e);
     var that = this;
     var dizhi = that.data.dizhi;
     var sharer_id = wx.getStorageSync('sharer_id');

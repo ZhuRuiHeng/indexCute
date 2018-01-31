@@ -79,17 +79,21 @@ page{
   transform-origin:0 0;
   box-sizing:border-box;
 }
-.nav{width:100%;height:68rpx;display:flex;flex-direction:row;padding:10rpx 0;}
+.nav{width:100%;display:flex;flex-direction:row;padding:10rpx 0;}
 .default{line-height:68rpx;text-align:center;flex:1;color:#666;font-size:28rpx;}
 .red{text-align:center;flex:1;font-size:28rpx;}
 .red span{display:inline-block;padding:0 20rpx;color:rgb(220, 165, 74);height: 50rpx;line-height: 50rpx;
 }
 .nav.bc_white .red{
   line-height:68rpx;
+  color: rgb(159,137,96);
 }
 .nav.bc_white{
   background: #fff;
   position: relative;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
 }
 .nav.bc_white:after{
    content:" ";
@@ -822,4 +826,15 @@ navigator{
 }
 .packageText .packageTitle,.packageText .packageLittle{
   width: 100%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+}
+button:after{
+  content: none;
+}
+button{
+  font-size: 32rpx;
+  padding: 0!important;
+  margin: 0!important;
+  border-radius: 0!important;
+  background: #fff;
+  line-height: inherit;
 }
